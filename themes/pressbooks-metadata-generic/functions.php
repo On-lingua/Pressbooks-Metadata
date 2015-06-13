@@ -175,9 +175,12 @@ add_filter( 'gettext_with_context', 'pbt_terminology_modify_context', 11, 4 );
 $GLOBALS['PB_SECRET_SAUCE']['TURN_OFF_FREEBIE_NOTICES_EPUB'] = 'not_created_on_pb_com';
 $GLOBALS['PB_SECRET_SAUCE']['TURN_OFF_FREEBIE_NOTICES_PDF'] = 'not_created_on_pb_com';
 
+/*
+ * Pressbooks Metadata extra functions
+ */
+
 /**
  * Imported from pressbooks-textbook/includes/pbt-utility.php
- * (Pressbooks-Metadata hack)
  *
  * @author Brad Payne <brad@bradpayne.ca>
  * @license   GPL-2.0+
@@ -229,3 +232,49 @@ function latest_exports() {
 
 	return $latest;
 }
+
+/**
+ * Returns true if the current chapter has related books (option checked in
+ * chapter's admin page).
+ */
+function has_related_books_enabled() {
+
+	$pm_RBM = Pressbooks_Metadata_Related_Books_Metadata::get_instance();
+	return $pm_RBM->are_related_books_enabled();
+
+}
+
+/**
+ * Prints the related books links.
+ */
+function print_related_books_fields() {
+
+	$pm_RBM = Pressbooks_Metadata_Related_Books_Metadata::get_instance();
+	$pm_RBM->print_related_books_fields();
+
+}
+
+/**
+ * Prints the page information button's contents.
+ */
+function print_page_information_fields() {
+
+	$pm_CM = Pressbooks_Metadata_Chapter_Metadata::get_instance();
+	$pm_CM->print_chapter_metadata_fields();
+
+}
+
+/**
+ * Fixes pop-out for extra sidebar buttons.
+ */
+function pm_enqueue_scripts() {
+
+	// TOC pop-out JS code without conflicts with Page Info's one
+	wp_dequeue_script( 'pb-pop-out-toc' );
+	wp_enqueue_script( 'pb-pop-out-toc', get_stylesheet_directory_uri() . '/js/toc-pop-out.js', array( 'jquery' ), '1.0', false );
+
+	wp_enqueue_script( 'pm-pop-out-page-meta', get_stylesheet_directory_uri() . '/js/page-metadata-pop-out.js', array( 'jquery' ), '1.0', false );
+
+}
+
+add_action( 'wp_enqueue_scripts', 'pm_enqueue_scripts' );
