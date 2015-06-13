@@ -111,18 +111,4 @@ class Pressbooks_Metadata_Admin {
 
 	}
 
-	/**
-	 * Adds and removes buttons on the admin dashboard.
-	 * Inspirated from TextBook's equivalent.
-	 *
-	 * @since    1.0.1
-	 */
-	public function adjust_menu() {
-
-		if ( \Pressbooks\Book::isBook() ) {
-			add_menu_page( 'Import', 'Import', 'edit_posts', 'pb_import', '\PressBooks\Admin\Laf\display_import', '', 15 );
-		}
-
-	}
-
 }
