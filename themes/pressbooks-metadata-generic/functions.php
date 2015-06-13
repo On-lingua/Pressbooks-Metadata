@@ -265,6 +265,16 @@ function print_page_information_fields() {
 }
 
 /**
+ * Prints the book information contents.
+ */
+function print_book_information_fields() {
+
+	$pm_BM = Pressbooks_Metadata_Book_Metadata::get_instance();
+	$pm_BM->print_book_metadata_fields();
+
+}
+
+/**
  * Fixes pop-out for extra sidebar buttons.
  */
 function pm_enqueue_scripts() {

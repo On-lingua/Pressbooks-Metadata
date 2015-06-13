@@ -40,6 +40,7 @@
 				echo ( ! empty( $metadata['pb_copyright_year'] ) ) ? $metadata['pb_copyright_year'] : date( 'Y' );
 				if ( ! empty( $metadata['pb_copyright_holder'] ) ) echo ' ' . __( 'by ', 'pressbooks' ) . ' ' . $metadata['pb_copyright_holder'] . '. ';
 				echo "</td></tr>\n";
+				print_book_information_fields();
 				?>
 
 				</table>

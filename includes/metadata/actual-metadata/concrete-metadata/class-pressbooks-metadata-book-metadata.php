@@ -140,5 +140,25 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 
 	}
 
+	/**
+	 * Prints the HTML code of book metadata for the public part of
+	 * the book.
+	 *
+	 * @since 0.1
+	 */
+	public function print_book_metadata_fields() {
+
+		$meta = $this->get_current_metadata_flat();
+		if ( empty( $meta ) ) {
+			return;
+		}
+
+		foreach ( $meta as $elt ) {
+			?><tr><td><?php echo $elt->get_name(); ?>:</td><?php
+			?><td><?php echo $elt; ?></td></tr><?php
+		}
+
+	}
+
 }
 
