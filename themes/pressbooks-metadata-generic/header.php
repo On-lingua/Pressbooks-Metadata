@@ -18,8 +18,10 @@
 if ( is_front_page() ) {
 	echo pbt_get_seo_meta_elements();
 	echo pbt_get_microdata_meta_elements();
+	print_book_microdata_meta_tags();
 } else {
 	echo pbt_get_microdata_meta_elements();
+	print_chapter_microdata_meta_tags();
 }
 ?>
 <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/favicon.ico" />
@@ -63,7 +65,14 @@ if ( is_front_page() ) {
 	 	<!-- home page wrap -->
 	 	
 		<span itemscope itemtype="http://schema.org/Book" itemref="about alternativeHeadline author copyrightHolder copyrightYear datePublished description editor 
-		      image inLanguage keywords publisher audience educationalAlignment educationalUse interactivityType learningResourceType typicalAgeRange">
+		image inLanguage keywords publisher audience educationalAlignment educationalUse interactivityType learningResourceType typicalAgeRange
+<?php
+if ( is_front_page() ) {
+	print_book_microdata_itemprops_list();
+} else {
+	print_chapter_microdata_itemprops_list();
+}
+?>">
 			<div class="book-info-container hfeed">
 	 
 		<?php else: ?>  	 
@@ -115,4 +124,4 @@ if ( is_front_page() ) {
 			<div id="wrap">	    
 				<div id="content">
 
-	 <?php endif; ?>	
+	 <?php endif; ?>

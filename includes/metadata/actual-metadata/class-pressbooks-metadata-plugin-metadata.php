@@ -198,5 +198,46 @@ abstract class Pressbooks_Metadata_Plugin_Metadata {
 
 	}
 
+	/**
+	 * Prints the HTML meta tags containing microdata information of
+	 * metadata contained in this object, for the public part of the book.
+	 *
+	 * @since 0.1
+	 */
+	public function print_microdata_meta_tags() {
+
+		$meta = $this->get_current_metadata_flat();
+
+		foreach ( $meta as $elt ) {
+			$it = $elt->get_itemprop();
+			if( ! empty( $it ) ) {
+?>
+<meta itemprop='<?php echo $it; ?>' content='<?php echo $elt->toMicrodataString(); ?>' id='<?php echo $it; ?>'>
+<?php
+			}
+		}
+
+	}
+
+	/**
+	 * Prints the microdata itemprop names (as a list) of metadata contained
+	 * in this object, for the public part of the book.
+	 *
+	 * @since 0.1
+	 */
+	public function print_microdata_itemprops_list() {
+
+		$meta = $this->get_current_metadata_flat();
+
+		foreach ( $meta as $elt ) {
+			$it = $elt->get_itemprop();
+			if( ! empty( $it ) ) {
+				echo ' ';
+				echo $it;
+			}
+		}
+
+	}
+
 }
 

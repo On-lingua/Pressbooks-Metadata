@@ -275,6 +275,46 @@ function print_book_information_fields() {
 }
 
 /**
+ * Prints the book meta tags containing microdata information.
+ */
+function print_book_microdata_meta_tags() {
+
+	$pm_BM = Pressbooks_Metadata_Book_Metadata::get_instance();
+	$pm_BM->print_microdata_meta_tags();
+
+}
+
+/**
+ * Prints the chapter meta tags containing microdata information.
+ */
+function print_chapter_microdata_meta_tags() {
+
+	$pm_CM = Pressbooks_Metadata_Chapter_Metadata::get_instance();
+	$pm_CM->print_microdata_meta_tags();
+
+}
+
+/**
+ * Prints the book meta tags containing microdata information.
+ */
+function print_book_microdata_itemprops_list() {
+
+	$pm_BM = Pressbooks_Metadata_Book_Metadata::get_instance();
+	$pm_BM->print_microdata_itemprops_list();
+
+}
+
+/**
+ * Prints the chapter meta tags containing microdata information.
+ */
+function print_chapter_microdata_itemprops_list() {
+
+	$pm_CM = Pressbooks_Metadata_Chapter_Metadata::get_instance();
+	$pm_CM->print_microdata_itemprops_list();
+
+}
+
+/**
  * Fixes pop-out for extra sidebar buttons.
  */
 function pm_enqueue_scripts() {

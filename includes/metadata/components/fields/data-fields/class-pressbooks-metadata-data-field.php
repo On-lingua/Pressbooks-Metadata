@@ -188,4 +188,17 @@ abstract class Pressbooks_Metadata_Data_Field extends Pressbooks_Metadata_Field 
 
 	}
 
+	/**
+	 * Creates a string representation of the element, used for Microdata
+	 * “content” attribute.
+	 *
+	 * @since 0.1
+	 * @return string A string representation of the element, for Microdata.
+	 */
+	public function toMicrodataString() {
+
+		return $this->__toString();
+
+	}
+
 }
