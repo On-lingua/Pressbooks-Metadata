@@ -117,4 +117,21 @@ class Pressbooks_Metadata_List_Field extends Pressbooks_Metadata_Single_Field {
 
 	}
 
+	/**
+	 * Creates a string representation of the element.
+	 *
+	 * @since 0.1
+	 * @return string A string representation of the element.
+	 */
+	public function __toString() {
+
+		$value = $this->get_value();
+		$value_name = '';
+		if ( isset( $this->values[$value] ) ) {
+			$value_name = $this->values[$value];
+		}
+		return htmlentities( $value_name, ENT_QUOTES | ENT_HTML5 );
+
+	}
+
 }
