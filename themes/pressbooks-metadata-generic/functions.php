@@ -78,7 +78,7 @@ function pbt_get_microdata_meta_elements() {
 
 	// add elements that aren't captured, and don't need user input
 	$pb_bisac_subject = '';
-	// fixes the undefined index pb_bisac_subject notice
+	// Pressbooks Metadata: fixes the undefined index pb_bisac_subject notice
 	if ( isset( $metadata['pb_bisac_subject'] ) ) {
 		$pb_bisac_subject = $metadata['pb_bisac_subject'];
 	}
