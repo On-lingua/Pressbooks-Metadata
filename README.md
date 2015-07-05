@@ -7,6 +7,24 @@ Adds useful navigation and semantic features to PressBooks.
 1. Adds Related Books with an integrated navigation menu
 1. Adds Question and Answer forum for each page
 
+### 1. Adds Metadata
+1. Target Language (the languaget this book is about): European official languages
+2. Level (the language level this book is about): CERF
+3. Learning Resource Type (the kind of resource this book represent): 
+course
+examination
+exercise
+4. Interactivity Type (the interactivity type of this book): active / expositive / mixed
+5. Age Range (The target age of this book)
+
+### 2. Adds Related Books with an integrated navigation menu
+
+
+
+### 3. Adds Question and Answer forum for each page
+
+
+
 ## Requirements
 
 This plugin uses some features from PressBooks, thus you should have installed and activated this plugin (tested on 2.4.2).
