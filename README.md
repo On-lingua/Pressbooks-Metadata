@@ -73,7 +73,8 @@ This plugin uses some features from PressBooks, thus you should have installed a
 
 ## Credits
 
-Uses the [WordPress Plugin Boilerplate](http://wppb.io/).
+Uses the [WordPress Plugin Boilerplate](http://wppb.io
+
 Uses the [WordPress Plugin PressBooks TexBooks](https://github.com/BCcampus/pressbooks-textbook).
 
 
