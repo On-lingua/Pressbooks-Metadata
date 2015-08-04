@@ -19,13 +19,23 @@ exercise
 4. Interactivity Type (the interactivity type of this book): active / expositive / mixed
 5. Age Range (The target age of this book)
 
-### 1. Adds Related Books with an integrated navigation menu
-
-
+### 2. Adds Related Books with an integrated navigation menu
 
 ### 3. Adds Question and Answer forum for each page
+Go to  ..... and write the link where the students can ask questions and get answers.
+
+### 4. Adds Search Engine
+From PressBooks TextBooks we import the Relevanci plugin.
+    Search results sorted in the order of relevance, not by date.
+    Fuzzy matching: match partial words, if complete words don't match.
+    Find documents matching either just one search term (OR query) or require all words to appear (AND query).
+    Search for phrases with quotes, for example "search phrase".
+    Create custom excerpts that show where the hit was made, with the search terms highlighted.
+    Highlight search terms in the documents when user clicks through search results.
+    Search comments, tags, categories and custom fields.
 
 
+### 5. Adds New Template
 
 ## Requirements
 
@@ -64,6 +74,7 @@ This plugin uses some features from PressBooks, thus you should have installed a
 ## Credits
 
 Uses the [WordPress Plugin Boilerplate](http://wppb.io/).
+Uses the [WordPress Plugin PressBooks TexBooks](https://github.com/BCcampus/pressbooks-textbook).
 
 
 
