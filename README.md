@@ -25,7 +25,7 @@ exercise
 Go to  ..... and write the link where the students can ask questions and get answers.
 
 ### 4. Adds Search Engine
-From PressBooks TextBooks we import the Relevanci plugin.
+From PressBooks TextBooks we import the Relevanssi plugin.
     Search results sorted in the order of relevance, not by date.
     Fuzzy matching: match partial words, if complete words don't match.
     Find documents matching either just one search term (OR query) or require all words to appear (AND query).
@@ -77,5 +77,6 @@ Uses the [WordPress Plugin Boilerplate](http://wppb.io).
 
 Uses the [WordPress Plugin PressBooks TexBooks](https://github.com/BCcampus/pressbooks-textbook).
 
+Uses the [WordPress Plugin Relevanssi from PressBooks TexBooks](https://wordpress.org/plugins/relevanssi/).
 
 
