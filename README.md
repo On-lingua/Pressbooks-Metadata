@@ -6,6 +6,8 @@ Adds useful navigation and semantic features to PressBooks.
 1. Adds Metadata
 1. Adds Related Books with an integrated navigation menu
 1. Adds Question and Answer forum for each page
+1. Adds a search engine plugin for the website version of the book, reducing the need to generate a traditional index.
+1. Add a New Template
 
 ### 1. Adds Metadata
 1. Target Language (the languaget this book is about): European official languages
@@ -17,7 +19,7 @@ exercise
 4. Interactivity Type (the interactivity type of this book): active / expositive / mixed
 5. Age Range (The target age of this book)
 
-### 2. Adds Related Books with an integrated navigation menu
+### 1. Adds Related Books with an integrated navigation menu
 
 
 
