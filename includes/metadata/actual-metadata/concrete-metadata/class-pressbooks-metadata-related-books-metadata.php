@@ -116,8 +116,10 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 		$chap_meta->add_post_type( 'chapter' );
 
 		$chap_meta->add_field( new Pressbooks_Metadata_Checkbox_Field(
-			'Enable “Related Books” Button', '', 'use_related_books'
+			'Enable “Related Books�? Button', 'Enable Related Books', 'use_related_books'
 		) );
+                	
+    
 
 		$this->add_component( $chap_meta );
 
@@ -140,7 +142,7 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 	}
 
 	/**
-	 * Checks if the “Related Books” option is enabled for the current page.
+	 * Checks if the “Related Books�? option is enabled for the current page.
 	 *
 	 * @since 0.1
 	 * @return boolean true if the option is enabled, false otherwise.
@@ -175,8 +177,7 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 		return $new_book_home_uri . $page_relative_uri;
 
 	}
-
-	/**
+     	/**
 	 * Prints the links (HTML code) to related books for the public part of
 	 * the book.
 	 *
@@ -186,6 +187,9 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 
 		$meta = $this->get_current_metadata();
 		if ( ! array_key_exists( 'related-books-slugs', $meta ) ) {
+                   	?><ul><?php ?><li>
+				<?php echo 'No related books have been added yet!'; ?></li><?php
+                                ?></ul><?php
 			return;
 		}
 		$slugs = &$meta['related-books-slugs'];
@@ -215,6 +219,7 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 				<?php echo $val->get_name(); ?></a></li><?php
 			}
 		}
+            
 		?></ul><?php
 
 	}

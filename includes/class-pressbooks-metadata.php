@@ -73,7 +73,6 @@ class Pressbooks_Metadata {
 
 		$this->load_dependencies();
 		$this->set_locale();
-		$this->set_themes();
 		$this->define_admin_hooks();
 		$this->define_metadata_changes();
 		$this->define_public_hooks();
@@ -110,10 +109,7 @@ class Pressbooks_Metadata {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pressbooks-metadata-i18n.php';
 
-		/**
-		 * The class responsible for registering and setting all the themes used by the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pressbooks-metadata-themes.php';
+
 
 		/**
 		 * The class responsible for defining all actions that occur in the Dashboard.
@@ -154,24 +150,6 @@ class Pressbooks_Metadata {
 
 	}
 
-	/**
-	 * Set the plugin's specific themes and removes useless ones.
-	 *
-	 * @since    0.1
-	 * @access   private
-	 */
-	private function set_themes() {
-
-		$plugin_themes = new Pressbooks_Metadata_Themes( $this->get_plugin_name(), $this->get_version() );
-
-		$this->loader->add_action( 'init', $plugin_themes, 'register_directory' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_themes, 'enqueue_custom_themes' );
-		$this->loader->add_filter( 'allowed_themes', $plugin_themes, 'add_themes_to_filter', 11 );
-
-		// Export fix
-		$this->loader->add_filter( 'pb_epub_css_override', $plugin_themes, 'add_epub_export_styles' );
-
-	}
 
 	/**
 	 * Register all of the hooks related to the dashboard functionality

@@ -206,7 +206,7 @@ class Pressbooks_Metadata_Metadata_Related_Books {
 	}
 
 	/**
-	 * Generates an array with the fields to be added to the dashboard, in the “General Book Information” page.
+	 * Generates an array with the fields to be added to the dashboard, in the “General Book Information�? page.
 	 *
 	 * @since  0.1
 	 * @return array The generated array.
@@ -256,14 +256,14 @@ class Pressbooks_Metadata_Metadata_Related_Books {
 		$this->chapter_metadata['use_related_books'] = array(
 			'group' => 'use_related_books-metabox',
 			'field_type' => 'checkbox',
-			'label' => 'Enable “Related Books” Button',
+			'label' => 'Enable “Related Books�? Button',
 			'separated' => true
 		);
-
+           
 	}
 
 	/**
-	 * Generates an array with the fields to be added to the dashboard, in the “Chapter” page.
+	 * Generates an array with the fields to be added to the dashboard, in the “Chapter�? page.
 	 *
 	 * @since  0.1
 	 * @return array The generated array.
@@ -329,7 +329,7 @@ class Pressbooks_Metadata_Metadata_Related_Books {
 	}
 
 	/**
-	 * Checks if the “Related Books” option is enabled for the current page.
+	 * Checks if the “Related Books�? option is enabled for the current page.
 	 *
 	 * @since 0.1
 	 * @return string True if the option is enabled, false otherwise.

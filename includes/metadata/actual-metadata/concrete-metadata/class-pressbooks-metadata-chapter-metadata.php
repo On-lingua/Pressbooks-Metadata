@@ -42,7 +42,7 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 		// Preexisting meta-box
 		$chap_meta = new Pressbooks_Metadata_Meta_Box(
 			'Chapter Metadata', '',
-			'chapter-metadata', true );
+			'chapter-metadata2', true );
 		$chap_meta->add_post_type( 'chapter' );
 
 		$chap_meta->add_field( new Pressbooks_Metadata_Url_Field(
@@ -54,6 +54,12 @@ class Pressbooks_Metadata_Chapter_Metadata extends Pressbooks_Metadata_Plugin_Me
 		$chap_meta->add_field( new Pressbooks_Metadata_Number_Field(
 			'Class Learning Time (minutes)',
 			'', 'time_required', '', '', 0, false, 0 ) );
+                $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 'Custom Input 1',
+			'', 'custom_input1', '', '', '', false, 'custom',
+			'custom2' ) );
+                $chap_meta->add_field( new Pressbooks_Metadata_Text_Field( 'Custom Input 2',
+			'', 'custom_input2', '', '', '', false, 'custom',
+			'custom1' ) );
 
 		// Built-in fields (from WordPress)
 		$chap_meta->add_field( new Pressbooks_Metadata_Creation_Date_Field(

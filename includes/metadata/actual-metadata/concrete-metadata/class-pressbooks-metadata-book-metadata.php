@@ -12,6 +12,7 @@
 require_once plugin_dir_path( __FILE__ )
 . '../class-pressbooks-metadata-plugin-metadata.php';
 
+
 /**
  * Most of the book metadata included/used by this plugin.
  *
@@ -19,6 +20,8 @@ require_once plugin_dir_path( __FILE__ )
  * @subpackage Pressbooks_Metadata/includes/metadata/actual-metadata/concrete-metadata
  * @author     julienCXX <software@chmodplusx.eu>
  */
+
+
 class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metadata {
 
 	/**
@@ -39,10 +42,13 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 
 		parent::__construct();
 
+  
+
+
 		// Preexisting meta-box
 		$g_b_info = new Pressbooks_Metadata_Meta_Box(
-			'General Book Information', '',
-			'general-book-information', true );
+			'General Educational Information', '',
+			'general-educational-information', true );
 		$g_b_info->add_post_type( 'metadata' );
 
 		$g_b_info->add_field( new Pressbooks_Metadata_Language_List_Field(
@@ -72,7 +78,8 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			array(
 				'course' => 'Course',
 				'exam' => 'Examination',
-				'exercise' => 'Exercise'
+				'exercise' => 'Exercise',
+                                'descriptor' => 'Descriptor'
 			), 'learningResourceType' ) );
 
 		$g_b_info->add_field( new Pressbooks_Metadata_List_Field(
@@ -104,6 +111,17 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 				'6' => '6-7 years',
 				'5' => '5-3 years'
 			), 'typicalAgeRange' ) );
+                $g_b_info->add_field( new Pressbooks_Metadata_List_Field( 'Content Type',
+			'Type of content',
+			'content_type', '', '', '1',
+			array   ('1' => 'Course',
+				'6' => 'Extra Content',
+				'5' => 'Texts and Functions',
+				'4' => 'Phonetics and Spelling',
+				'3' => 'Grammar',
+				'2' => 'Vocabulary'
+				
+			), ' additionalType' ) );
 
 		$g_b_info->add_field( new Pressbooks_Metadata_Number_Field(
 			'Class Learning Time (hours)', '',
@@ -162,3 +180,18 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 
 }
 
+add_action( 'custom_metadata_manager_init_metadata', function (){
+    
+    
+    x_add_metadata_group( 'general-educational-information', 'metadata', array(
+		'label' => __( 'General Educational Information', 'pressbooks' ),
+		'priority' => 'high',
+	) );
+    // Chapter Metadata
+
+	x_add_metadata_group( 'chapter-metadata2', 'chapter', array(
+		'label' => __( 'Custom Chapter Metadata', 'pressbooks' )
+	) );
+
+
+});

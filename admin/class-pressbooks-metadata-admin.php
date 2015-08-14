@@ -100,15 +100,5 @@ class Pressbooks_Metadata_Admin {
 
 	}
 
-	/**
-	 * Called when a book is created in PressBooks.
-	 *
-	 * @since    0.1
-	 */
-	public function new_book() {
-
-		switch_theme( 'pressbooks-metadata-generic' );
-
-	}
 
 }

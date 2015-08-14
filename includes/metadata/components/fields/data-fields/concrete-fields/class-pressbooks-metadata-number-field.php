@@ -61,8 +61,8 @@ class Pressbooks_Metadata_Number_Field extends Pressbooks_Metadata_Placeholder_F
 	 * @param  string           $itemprop      The field's Microdata
 	 * itemprop attibute.
 	 * @throws DomainException  If both the name and slug are empty (unable
-	 * to generate a valid slug), or if “min” is bigger than “max”.
-	 * @throws InvalidArgumentException If the “min” or ”max” argument is
+	 * to generate a valid slug), or if “min�? is bigger than “max�?.
+	 * @throws InvalidArgumentException If the “min�? or �?max�? argument is
 	 * not empty and is not a number (or a string representing a number).
 	 */
 	public function __construct( $name, $desc = '', $slug = '',

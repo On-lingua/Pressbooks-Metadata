@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Pressbooks Metadata
  * Plugin URI:        http://on-lingua.com/
- * Description:       Extended features for Pressbooks (Metadata and Theme)
+ * Description:       Extended features for Pressbooks (Metadata)
  * Version:           0.1
  * Author:            My Language Skills
  * Author URI:        http://on-lingua.com/
