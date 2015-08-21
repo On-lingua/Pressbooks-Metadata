@@ -32,7 +32,7 @@ class Pressbooks_Metadata_Language_List_Field extends Pressbooks_Metadata_List_F
 	 * priority.
 	 */
 	private static $high_pri_languages = array (
-		' '   => 'None'
+		'none'   => 'None'
 	);
 
 	/**
