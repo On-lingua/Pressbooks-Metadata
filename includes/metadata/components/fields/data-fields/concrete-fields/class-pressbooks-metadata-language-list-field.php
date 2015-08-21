@@ -45,7 +45,7 @@ class Pressbooks_Metadata_Language_List_Field extends Pressbooks_Metadata_List_F
 	 */
 	private static $low_pri_languages = array (
 		
-		'vlc' => 'Valencian'
+		'vlc' => 'Valencian',
 		'bg' => 'Bulgarian',
 		'hr' => 'Croatian',
 		'cs' => 'Czech',
