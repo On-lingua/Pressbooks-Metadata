@@ -44,7 +44,7 @@ class Pressbooks_Metadata_Language_List_Field extends Pressbooks_Metadata_List_F
 	 * @var    array   $low_pri_languages The languages with a low priority.
 	 */
 	private static $low_pri_languages = array (
-		
+		'none' =>'None'
 		'vlc' => 'Valencian',
 		'bg' => 'Bulgarian',
 		'hr' => 'Croatian',
