@@ -99,6 +99,23 @@ class Pressbooks_Metadata_Admin {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/pressbooks-metadata-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
+        
+	/**
+	 * Called when a book is created in PressBooks.
+	 *
+	 * @since    0.1
+	 */
+	public function new_book() {
+
+		switch_theme( 'pressbooks-lingua-theme' );
+
+	}
+  
+
+function remove_add_new_book( $wp_admin_bar ) {
+	$wp_admin_bar->remove_node( 'add-new-book' );
+       
+}
 
 
 }

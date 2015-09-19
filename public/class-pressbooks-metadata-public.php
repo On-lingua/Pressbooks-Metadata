@@ -72,9 +72,20 @@ class Pressbooks_Metadata_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pressbooks-metadata-public.css', array(), $this->version, 'all' );
-
+                $pm_BM = Pressbooks_Metadata_Book_Metadata::get_instance();
+                $meta=$pm_BM->get_current_metadata_flat();
+                foreach ( $meta as $key=>$elt ) {
+                if($elt->get_name()==='Level'){
+                            $level=$elt;
+                        }        
+                }
+                $level=$level? '-'.strtolower($level):'none';
+                if($level==='none'){
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pressbooks-lingua-theme-public.css', array(), $this->version, 'all' );
+                }
+                else{
+                wp_enqueue_style( $this->plugin_name.$level, plugin_dir_url( __FILE__ ) . 'css/pressbooks-lingua-theme-public'.$level.'.css', array(), $this->version, 'all' );    
+                }
 	}
 
 	/**
@@ -95,8 +106,9 @@ class Pressbooks_Metadata_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
+         
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/pressbooks-metadata-public.js', array( 'jquery' ), $this->version, false );
+                
 
 	}
 

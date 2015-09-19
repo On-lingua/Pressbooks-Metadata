@@ -31,9 +31,7 @@ class Pressbooks_Metadata_Language_List_Field extends Pressbooks_Metadata_List_F
 	 * @var    array   $high_pri_languages The languages with an high
 	 * priority.
 	 */
-	private static $high_pri_languages = array (
-		'none'   => 'None'
-	);
+	private static $high_pri_languages = array ();
 
 	/**
 	 * The languages with a low priority (displayed after the high priority
@@ -43,8 +41,9 @@ class Pressbooks_Metadata_Language_List_Field extends Pressbooks_Metadata_List_F
 	 * @access private
 	 * @var    array   $low_pri_languages The languages with a low priority.
 	 */
+
 	private static $low_pri_languages = array (
-		'none' =>'None'
+		'none'   => 'None',
 		'vlc' => 'Valencian',
 		'bg' => 'Bulgarian',
 		'hr' => 'Croatian',
@@ -89,13 +88,24 @@ class Pressbooks_Metadata_Language_List_Field extends Pressbooks_Metadata_List_F
 	 * to generate a valid slug).
 	 */
 	public function __construct( $name, $desc = '', $slug = '',
-		$suffix = '', $disp_callback = '', $itemprop = '' ) {
+		$suffix = '', $disp_callback = '', $itemprop = '' ) {       
+            /**
+            *
+            * Commented
+            * @since      04.09.2015
+            * @auothor    Yigit Yesilpinar
+            */
+            //		$values = array_merge( array(),
+            //			Pressbooks_Metadata_Language_List_Field::$high_pri_languages );
 
-		$values = array_merge( array(),
-			Pressbooks_Metadata_Language_List_Field::$high_pri_languages );
-
+            /**
+            *
+            * Changed to array() from $values
+            * @since      04.09.2015
+            * @auothor    Yigit Yesilpinar
+            */
 		// TODO: handle sort on localized language names
-		$values = array_merge( $values,
+		$values = array_merge(  array(),
 			Pressbooks_Metadata_Language_List_Field::$low_pri_languages );
 
 		parent::__construct( $name, $desc, $slug, $suffix,

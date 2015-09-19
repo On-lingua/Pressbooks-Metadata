@@ -38,12 +38,15 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 	protected function __construct() {
 
 		parent::__construct();
-
+               $explaination= 'The books (one per content type) that are meant to '
+			. 'be linked with this one.<br/>';
+               
+               $add='For <span style="color:red;">On-lingua</span> books you can write just the book name you want to relate! <b>Mybook</b> <br/>';
+               $add.='You can also enter external links! <b>mybook.com</b>';
 		// Book part
 		$book_meta = new Pressbooks_Metadata_Meta_Box(
 			'Related Books',
-			'The books (one per content type) that are meant to '
-			. 'be linked with this one.',
+			$explaination.$add,
 			'related-books-slugs' );
 		$book_meta->add_post_type( 'metadata' );
 
@@ -85,6 +88,20 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 			'Texts', '', 'texts_book' ) );
 		*/
 		$book_meta->add_field( $prag_com );
+                
+                $cul_com = new Pressbooks_Metadata_Field_Group(
+			'Cultural Components', '', 'cultural-components' );
+		$cul_com->add_field( new Pressbooks_Metadata_Text_Field(
+			'Cultural and Sociocultural', '', 'cultural_functions_book' ) );
+		/*
+		$prag_com->add_field( new Pressbooks_Metadata_Text_Field(
+			'Tactics and Pragmatic Strategies', '', 'tactics_book'
+		) );
+		$prag_com->add_field( new Pressbooks_Metadata_Text_Field(
+			'Texts', '', 'texts_book' ) );
+		*/
+		$book_meta->add_field( $cul_com );
+
 
 		/*
 		$cult_com = new Pressbooks_Metadata_Field_Group(
@@ -103,10 +120,12 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 		) );
 		$book_meta->add_field( $cult_com );
 		*/
-
-		$book_meta->add_field( new Pressbooks_Metadata_Text_Field(
+                $ex_com = new Pressbooks_Metadata_Field_Group(
+			'Extra Components', '', 'extra-components' );
+		
+		$ex_com->add_field( new Pressbooks_Metadata_Text_Field(
 			'Extra Content', '', 'extra_content_book' ) );
-
+                $book_meta->add_field( $ex_com );
 		$this->add_component( $book_meta );
 
 		// Chapter part
@@ -193,7 +212,11 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 			return;
 		}
 		$slugs = &$meta['related-books-slugs'];
-
+                        $pathparts=explode('/', site_url());
+                        $length=count($pathparts);
+                        unset($pathparts[$length-1]);
+                        array_values($pathparts);  
+                        $filepath=implode('/', $pathparts);
 		?><ul><?php
 		foreach ( $slugs->get_fields() as $key => $val ) {
 			if ( $val->is_group_of_fields() ) {
@@ -203,19 +226,39 @@ class Pressbooks_Metadata_Related_Books_Metadata extends Pressbooks_Metadata_Plu
 				?><ul><?php
 				foreach ( $val->get_fields()
 					as $field_key => $field_val ) {
-					?><a href="<?php
-					echo $this->other_book_url(
-					$field_val->get_value() ); ?>">
+                                    ?><li><a href="<?php  
+                                  $href=$this->other_book_url($field_val->get_value());         
+                                  $pos = strpos($href, '.');        
+                                  if($pos===false){$href=$filepath.$href;}
+                                  else {
+                                  $href = substr($href, 1);  
+                                  $pos = strpos($href, 'http://');
+                                  if($pos===false){
+                                      $href='http://'.$href;                             
+                                  }                
+                                  }          
+					echo  $href;
+                                        ?>">
 					<?php
-					echo $field_val->get_name(); ?></a><?php
+					echo $field_val->get_name(); ?></a></li><?php
 				}
 				?></ul></li><?php
 			}
 			else {
 				// field without group
-				?><li><a href="<?php
-					echo $this->other_book_url(
-						$val->get_value() ); ?>">
+				?><li><a href="<?php  
+                                  $href=$this->other_book_url($field_val->get_value());         
+                                  $pos = strpos($href, '.');        
+                                  if($pos===false){$href=$filepath.$href;}
+                                  else {
+                                  $href = substr($href, 1);  
+                                  $pos = strpos($href, 'http://');
+                                  if($pos===false){
+                                      $href='http://'.$href;                             
+                                  }                
+                                  }          
+					echo  $href;
+                                        ?>">
 				<?php echo $val->get_name(); ?></a></li><?php
 			}
 		}

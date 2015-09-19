@@ -35,8 +35,8 @@ class Pressbooks_Metadata_Metadata_Fetcher {
 	 * @return array  The list of fetched metadata.
 	 */
 	private static function fetch_metadata( $type ) {
-
-		$args = array(
+    
+            $args = array(
 			'post_type' => $type,
 			'post_per_page' => 1,
 			'post_status' => 'publish',

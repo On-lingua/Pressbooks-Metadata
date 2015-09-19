@@ -39,12 +39,7 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 	 * @since  0.1
 	 */
 	protected function __construct() {
-
-		parent::__construct();
-
-  
-
-
+                        
 		// Preexisting meta-box
 		$g_b_info = new Pressbooks_Metadata_Meta_Box(
 			'General Educational Information', '',
@@ -128,13 +123,25 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 			'time_required', '', '', 0, false, 0 ) );
 
 		$g_b_info->add_field( new Pressbooks_Metadata_Text_Field( 'License URL',
-			'', 'rights_url', '', '', '', false, 'http://site.com/',
+			'You can add a link contains detailed description of the License of your book', 'rights_url', '', '', '', false, 'http://site.com/',
 			'license' ) );
 
 		$g_b_info->add_field( new Pressbooks_Metadata_Text_Field(
 			'Bibliography URL',
 			'The URL of a website/book this book is inspirated of',
 			'bibliography_url',
+			'', '', '', false, 'http://site.com/',
+			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
+                $g_b_info->add_field( new Pressbooks_Metadata_Text_Field(
+			'Library URL',
+			'Leave empty if you want to use your default On-lingua library <b>www.on-lingua.com/YourUserName/</b>',
+			'user_library_url',
+			'', '', '', false, 'http://site.com/',
+			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
+                $g_b_info->add_field( new Pressbooks_Metadata_Text_Field(
+			'Questions and Answers URL',
+			'',
+			'book_questions_url',
 			'', '', '', false, 'http://site.com/',
 			'isBasedOnUrl' ) ); // TODO: there can be multiple URLs
 
@@ -170,12 +177,12 @@ class Pressbooks_Metadata_Book_Metadata extends Pressbooks_Metadata_Plugin_Metad
 		if ( empty( $meta ) ) {
 			return;
 		}
-
+                ?> <table><?php
 		foreach ( $meta as $elt ) {
 			?><tr><td><?php echo $elt->get_name(); ?>:</td><?php
 			?><td><?php echo $elt; ?></td></tr><?php
 		}
-
+                ?> </table><?php
 	}
 
 }

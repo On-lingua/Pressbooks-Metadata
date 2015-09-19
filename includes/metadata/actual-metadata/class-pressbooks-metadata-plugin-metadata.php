@@ -151,7 +151,12 @@ abstract class Pressbooks_Metadata_Plugin_Metadata {
 	 * Pressbooks_Metadata_Abstract_Metadata.
 	 */
 	public function get_current_metadata() {
-
+                              if(empty($this->post_types)){
+                    $this->post_types []='metadata';     
+                }
+                
+              
+                
 		// retrieve metadata from all concerned post types
 		$fetched_meta = array();
 		foreach ( $this->post_types as $post_type) {
@@ -183,8 +188,7 @@ abstract class Pressbooks_Metadata_Plugin_Metadata {
 	 * Pressbooks_Metadata_Data_Field.
 	 */
 	public function get_current_metadata_flat() {
-
-		$tree = $this->get_current_metadata();
+                  $tree = $this->get_current_metadata();
 		$ret = array();
 		foreach ( $tree as $key => $val ) {
 			if ( $val->is_group_of_fields() ) {
