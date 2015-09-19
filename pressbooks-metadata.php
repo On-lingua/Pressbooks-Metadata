@@ -16,7 +16,7 @@
  * Plugin Name:       Pressbooks Metadata
  * Plugin URI:        http://on-lingua.com/
  * Description:       Extended features for Pressbooks (Metadata)
- * Version:           0.1
+ * Version:           1.0
  * Author:            My Language Skills
  * Author URI:        http://on-lingua.com/
  * License:           GPL-2.0+
