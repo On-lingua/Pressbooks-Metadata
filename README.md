@@ -53,3 +53,5 @@ activated this plugin (tested on 2.4.5).
 ## Credits
 
 Uses the [WordPress Plugin Boilerplate](http://wppb.io/).
+* Books for Languages [www.books4languages.com](https://books4languages.com)
+* Texbooks by Books for Languages [www.open.books4languages.com](https://open.books4languages.com)
